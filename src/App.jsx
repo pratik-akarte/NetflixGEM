@@ -1,15 +1,18 @@
-import { useState } from "react";
-
-import "./App.css";
-
-function App() {
+import Body from "./Components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Browse from "./Components/Browse";
 
 
-  return 
-  <>
-  
-  
-  </>;
-}
+const App = () => {
+  const appRouter = createBrowserRouter([
+    { path: "/", element: <Body /> },
+    { path: "/browse", element: <Browse /> },
+  ]);
+  return (
+    <>
+      <RouterProvider router={appRouter} />
+    </>
+  );
+};
 
 export default App;
