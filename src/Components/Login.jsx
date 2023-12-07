@@ -3,17 +3,24 @@ import { Text } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { Validate } from "../utils/validate";
 
+import { addUser } from "../utils/userData";
+import { useDispatch } from "react-redux";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 
 const Login = () => {
+
+  const dispatch = useDispatch();
   const [isSignIn, setSignIn] = useState("true");
   const [errorMsg, setErrorMsg] = useState(null);
 
   ///ref variable provided by React which refers to specific field lik input or button
+  const namee = useRef(null);
   const emailIDD = useRef(null);
   const passworddd = useRef(null);
 
@@ -39,7 +46,30 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+
+          updateProfile(user, {
+            displayName: namee?.current?.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              // Profile updated!
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+            })
+            .catch((error) => {
+              // An error occurred
+
+              setErrorMsg(error.message);
+              // ...
+            });
+
           // ...
         })
         .catch((error) => {
@@ -62,6 +92,7 @@ const Login = () => {
           const user = userCredential.user;
 
           console.log(user);
+        
 
           // ...
         })
@@ -80,7 +111,7 @@ const Login = () => {
       <img
         src="https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/67033404-2df8-42e0-a5a0-4c8288b4da2c/IN-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg"
         alt="bg"
-        className="absolute "
+        className="absolute"
       />
 
       <form
@@ -94,6 +125,7 @@ const Login = () => {
 
         {!isSignIn ? (
           <input
+            ref={namee}
             type="text"
             name=""
             id=""
@@ -135,8 +167,9 @@ const Login = () => {
               className="font-bold no-underline hover:underline cursor-pointer"
               onClick={handleToggle}
             >
-              Sign Up Now !
+              Sign Up
             </Text>{" "}
+            Now
           </Text>
         ) : (
           <Text marginTop={"2em"}>
@@ -146,7 +179,7 @@ const Login = () => {
               className="font-bold no-underline hover:underline cursor-pointer"
               onClick={handleToggle}
             >
-              Sign In .
+              Sign In
             </Text>{" "}
           </Text>
         )}
