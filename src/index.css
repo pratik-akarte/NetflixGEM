@@ -28,6 +28,7 @@ body {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
   overflow-x: hidden;
+  
 }
 
 /* Hide scrollbar for webkit browsers (Chrome, Safari) */
@@ -38,3 +39,12 @@ body {
 .flex::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+
+/*  */
+
+
+
+
+
+
+

@@ -5,6 +5,7 @@ import SecondComponent from "./SecondComponent";
 import useUpcomingMovie from "../hooks/useUpcomingMovie";
 import useTrending from "../hooks/useTrending";
 import usePopular from "../hooks/usePopular";
+import GPTsearch from "./GPTsearch";
 
 function Browse() {
   useNowPlaying();
@@ -12,9 +13,10 @@ function Browse() {
   useTrending();
   usePopular();
   return (
-    <div>
+    <div className="bg-black">
       <Header />
 
+     
       <MainContaier />
 
       {/*
