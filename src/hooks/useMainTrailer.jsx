@@ -20,11 +20,11 @@ const useMainTrailer = (movieId ) => {
       (video) => video?.name === "Official Trailer"
     ); 
 
-    console.log(filterData);
+    // console.log(filterData);
 
     const trailer = filterData ? filterData[0] : json?.results[0];
 
-    console.log(trailer);
+    // console.log(trailer);
     dispatch(addMovieTrailer(trailer));
   };
 

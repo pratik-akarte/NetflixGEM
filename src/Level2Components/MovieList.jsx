@@ -6,7 +6,7 @@ import MovieCard from "./MovieCard";
 
 // eslint-disable-next-line react/prop-types
 const Movielist = ({ title, movieData }) => {
-  console.log(title, movieData);
+  // console.log(title, movieData);
   return (
     <div className="pl-12 -mt-[12em] text-white ">
       <Heading paddingY={"1rem"} fontSize={"xl"}>
