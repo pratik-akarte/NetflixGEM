@@ -1,13 +1,14 @@
 import Body from "./Components/Body";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Browse from "./Components/Browse";
-import GPTsearch from "./Components/GPTsearch";
+
+import GeminiSearch from "./Components/GeminiSearch";
 
 const App = () => {
   const appRouter = createBrowserRouter([
     { path: "/", element: <Body /> },
     { path: "/browse", element: <Browse /> },
-    {path:"/GPTsearch", element: <GPTsearch/>}
+    {path:"/Geminisearch", element: <GeminiSearch/>}
   ]);
 
   return (

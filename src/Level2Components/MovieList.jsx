@@ -9,7 +9,7 @@ const Movielist = ({ title, movieData }) => {
   // console.log(title, movieData);
   return (
     <div className="pl-12 -mt-[12em] text-white ">
-      <Heading paddingY={"1rem"} fontSize={"xl"}>
+      <Heading paddingY={"2rem"} fontSize={"xl"}>
         {title}
       </Heading>
       <div
@@ -18,7 +18,7 @@ const Movielist = ({ title, movieData }) => {
       >
         <div className="flex flex-row gap-4 cursor-pointer">
           {movieData?.map((movie) => (
-            <MovieCard key={movie?.id} imgPath={movie?.poster_path} />
+            <MovieCard key={movie?.id} imgPath={movie?.poster_path} title={movie?.title} id={movie?.id} />
           ))}
         </div>
       </div>

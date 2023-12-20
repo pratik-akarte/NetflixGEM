@@ -5,7 +5,7 @@ import SecondComponent from "./SecondComponent";
 import useUpcomingMovie from "../hooks/useUpcomingMovie";
 import useTrending from "../hooks/useTrending";
 import usePopular from "../hooks/usePopular";
-import GPTsearch from "./GPTsearch";
+
 
 function Browse() {
   useNowPlaying();

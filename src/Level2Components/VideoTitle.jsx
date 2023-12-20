@@ -54,13 +54,12 @@ const VideoTitle = ({ title, overview }) => {
         </Button>
       </Box>
 
-
-       <a href="/GPTsearch">
-      <Box marginTop={"2em "}>
-        <Button padding={"2em"} onClick={handleGPTpage}>
-          GPT-SEARCH
-        </Button>
-      </Box>
+      <a href="/Geminisearch">
+        <Box marginTop={"2em "}>
+          <Button padding={"2em"} onClick={handleGPTpage}>
+            Gemini-SEARCH
+          </Button>
+        </Box>
       </a>
     </div>
   );

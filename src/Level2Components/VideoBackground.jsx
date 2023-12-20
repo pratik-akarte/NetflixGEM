@@ -8,9 +8,9 @@ const VideoBackground = ({ movieId }) => {
 
   useMainTrailer(movieId);
 
-
   return (
     <div className="w-screen">
+      <div className="absolute inset-12 bg-gradient-to-b from-black mb-0  h-[15%] w-full blur-sm mt-[1em]"></div>
       <iframe
         className="w-screen aspect-video -mt-12 "
         src={`https://www.youtube.com/embed/${videoTrailer?.key}?&mute=1&autoplay=1&fs=0&loop=1&controls=0&showinfo=0`}
