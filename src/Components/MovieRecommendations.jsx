@@ -1,21 +1,20 @@
 import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import Movielist from "../Level2Components/MovieList";
+
+import MovieSuggestionCard from "../Level2Components/MovieSuggestionCard";
 
 function MovieRecommendations() {
   const { movieSuggestions, movieNames } = useSelector((store) => store.GPT);
   if (!movieNames) return null;
 
   return (
-    <Box className="bg-black text-yellow-100 mx-32 -mt-[40em]  ">
-      <Box>
-        {movieNames.map((movie, index) => (
-          <Movielist
-            key={movie}
-            title={movie}
-            movieData={movieSuggestions[index]}
-          />
-        ))}
+    <Box className=" mx-12 -mt-[40em]  backdrop-blur-sm ">
+      <Box className=""> 
+        <MovieSuggestionCard
+          key={movieNames}
+          title={movieNames}
+          movieData={movieSuggestions}
+        />
       </Box>
     </Box>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { Box, Button, Center, Flex, Input, Text } from "@chakra-ui/react";
-import { useRef } from "react";
+import { Box, Center, Flex, Input, Spinner, Text } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 
 import { Gemini_API_Key, API_OPTIONS } from "../utils/constants";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -11,6 +11,7 @@ import { addMovieSuggestions } from "../utils/GPTslice";
 const GPTsearch = () => {
   const inputText = useRef(null);
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const genAI = new GoogleGenerativeAI(Gemini_API_Key);
 
@@ -21,7 +22,7 @@ const GPTsearch = () => {
       const prompt =
         "Act as a movies recommendation system and suggest some movies for the query" +
         inputText?.current?.value +
-        ". Only Give me 7 movies name , comma separated and without numeration like the example given ahead. Example: Gadar,Animal,Pathan,Tiger,Jawan";
+        ". Only Give me 11 movies name , comma separated and without numeration like the example given ahead. Example: Gadar,Animal,Pathan,Tiger,Jawan";
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -29,7 +30,6 @@ const GPTsearch = () => {
       const moviesArray = text.split(",").map((movie) => movie.trim());
       console.warn(moviesArray);
       return moviesArray;
-
     } catch (error) {
       console.error("Error in gemini function:", error);
       // Handle the error as needed, e.g., display an error message to the user
@@ -37,45 +37,60 @@ const GPTsearch = () => {
     }
   };
 
-  const getMovies = async (movie ) => {
-    console.warn(movie);
-    const data = await fetch(
-      "https://api.themoviedb.org/3/search/movie?query=" +
-        movie ,
-      API_OPTIONS
-    );
+  const getMovies = async (movie) => {
+    try {
+      const data = await fetch(
+        "https://api.themoviedb.org/3/search/movie?query=" + movie,
+        API_OPTIONS
+      );
 
-    const json = await data.json();
+      const json = await data?.json();
 
-    return json?.results;
+      // Return only the first movie from the search results
+      return json?.results?.[0];
+    } catch (error) {
+      console.error("Error in getMovies function:", error);
+      // Handle the error as needed, e.g., display an error message to the user
+      throw error; // Rethrow the error if needed
+    }
   };
 
   //TMDB movie search
   const handleSubmit = async () => {
     // dispatch(gptSearhResults({ movienames: null, movieResult: null, loading: true }));
 
-    if (inputText?.current?.value === "") {
-      alert("Let us know what do you want to watch today ?");
-      return;
+    try {
+      setIsLoading(true);
+      if (inputText?.current?.value === "") {
+        alert("Let us know what do you want to watch today ?");
+
+        return;
+      }
+      // dispatch(gptSearhResults({ movienames: null, movieResult: null, loading: true }));
+
+      const moviesArray = await gemini();
+      const movies = moviesArray;
+
+      const PromiseArray = movies.map((movie) => getMovies(movie));
+
+      const tmdbMovies = await Promise.all(PromiseArray);
+
+      const firstMovies = tmdbMovies.map((result) => result);
+
+      console.log(moviesArray);
+      console.log(firstMovies, "fffffff");
+
+      dispatch(
+        addMovieSuggestions({
+          moviesNames: moviesArray,
+          moviesResult: firstMovies,
+        })
+      );
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsLoading(false);
     }
-    // dispatch(gptSearhResults({ movienames: null, movieResult: null, loading: true }));
-
-    const moviesArray = await gemini();
-    const movies = moviesArray;
-
-    const PromiseArray = movies.map((movie) => getMovies( movie ));
-
-    const tmdbMovies = await Promise.all(PromiseArray);
-
-    console.log(moviesArray);
-    console.log(tmdbMovies);
-
-    dispatch(
-      addMovieSuggestions({
-        moviesNames: moviesArray,
-        moviesResult: tmdbMovies,
-      })
-    );
   };
 
   return (
@@ -124,10 +139,24 @@ const GPTsearch = () => {
             focusBorderColor="red.500"
           />
 
-          <Button marginTop={"1.5em"} padding={"1.7em"} onClick={handleSubmit}>
-            Get Movie Recommendations
-          </Button>
+          <button
+            className="button-82-pushable mt-[1.5em] p-[1.7em]"
+            role="button"
+            onClick={handleSubmit}
+          >
+            <span className="button-82-shadow"></span>
+            <span className="button-82-edge"></span>
+            <span className="button-82-front text">
+              Get Movie Recommendations
+            </span>
+          </button>
         </Box>
+
+        {isLoading && (
+          <Box className="backdrop-blur-sm mt-12 ">
+            <Spinner size="xl" color="red.500" />
+          </Box>
+        )}
       </Center>
     </Box>
   );

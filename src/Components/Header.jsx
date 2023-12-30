@@ -54,7 +54,7 @@ function Header() {
 
   return (
     <>
-      <div className="w-full absolute py-2 px-8 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs mt-12 ">
+      <div className={`w-full absolute py-2 px-8 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs ${user ? "mt-12" : ""}`}>
 
 
  

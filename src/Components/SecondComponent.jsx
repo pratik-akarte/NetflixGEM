@@ -6,7 +6,7 @@ const SecondComponent = () => {
   const movies = useSelector((store) => store.movies);
   return (
     <div>
-      <Box className="-mt-56 relative">
+      <Box className="-mt-[18em] relative">
       <Movielist title={"Now Playing"} movieData={movies?.nowPlayingMovies} />
       </Box>
      
