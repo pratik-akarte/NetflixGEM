@@ -8,7 +8,7 @@ import MovieCard from "./MovieCard";
 const Movielist = ({ title, movieData }) => {
   // console.log(title, movieData);
   return (
-    <Box className="pl-12 -mt-[12em] text-white  " paddingY={["5rem", "1rem"]}>
+    <Box className="pl-12 -mt-[12em] text-white  " paddingY={["0rem", "1rem"]}>
       <Heading paddingY={["1rem", "2rem"]} fontSize={["md", "lg", "xl"]}>
         {title}
       </Heading>
@@ -16,7 +16,7 @@ const Movielist = ({ title, movieData }) => {
         className="flex"
         style={{ overflowX: "auto", scrollbarWidth: "thin" }}
       >
-        <div className="flex flex-row gap-2 md:gap-4 cursor-pointer mb-8 md:mb-0">
+        <div className="flex flex-row gap-2 md:gap-4 cursor-pointer  pb-[80%]  md:mb-0">
           {movieData?.map((movie) => (
             <MovieCard
               key={movie?.id}
