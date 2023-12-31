@@ -9,8 +9,8 @@ const VideoBackground = ({ movieId }) => {
   useMainTrailer(movieId);
 
   return (
-    <div className="w-full sm:w-screen">
-      <div className="absolute inset-0 sm:inset-12 bg-gradient-to-b from-black mb-0 h-[5%] sm:h-[15%] w-full sm:w-[93em] blur-sm -pt-[43em] "></div>
+    <div className="w-full sm:w-screen z-10">
+      <div className=" absolute inset-1 sm:inset-12 bg-gradient-to-b from-black mb-0 h-[2%] md:h-[5%] w-full sm:w-[93em] blur-sm -pt-[43em]  "></div>
      
 
       <iframe

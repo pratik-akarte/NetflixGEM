@@ -1,26 +1,43 @@
-import Body from "./Components/Body";
-import {
-  createBrowserRouter,
-  RouterProvider,
- 
-} from "react-router-dom";
-import Browse from "./Components/Browse";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import GeminiSearch from "./Components/GeminiSearch";
-import NotFound from "./Level2Components/NotFound";
+import { lazy, Suspense } from "react";
+import Loading from "./Level2Components/Loading";
+
+const Body = lazy(() => import("./Components/Body"));
+const Browse = lazy(() => import("./Components/Browse"));
+const GeminiSearch = lazy(() => import("./Components/GeminiSearch"));
+const NotFound = lazy(() => import("./Level2Components/NotFound"));
 
 const App = () => {
   const appRouter = createBrowserRouter([
-    { path: "/", element: <Body />, errorElement: <NotFound /> },
-    { path: "/browse", element: <Browse />, errorElement: <NotFound /> },
+    {
+      path: "/",
+      element: (
+        <Suspense fallback={<Loading />}>
+          <Body />
+        </Suspense>
+      ),
+      errorElement: <NotFound />,
+    },
+    {
+      path: "/browse",
+      element: (
+        <Suspense fallback={<Loading />}>
+          <Browse />
+        </Suspense>
+      ),
+      errorElement: <NotFound />,
+    },
     {
       path: "/GeminiSearch",
-      element: <GeminiSearch />,
+      element: (
+        <Suspense fallback={<Loading />}>
+          <GeminiSearch />
+        </Suspense>
+      ),
       errorElement: <NotFound />,
     },
   ]);
-
-  
 
   return (
     <>

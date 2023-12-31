@@ -127,8 +127,8 @@ const Login = () => {
           <input
             ref={namee}
             type="text"
-            name=""
-            id=""
+            name="name"
+            id="input-name"
             className="p-3 mt-8 w-full bg-gray-700 rounded-md"
             placeholder="Name"
           />
@@ -137,14 +137,15 @@ const Login = () => {
         <input
           ref={emailIDD}
           type="text"
-          name=""
-          id=""
+          name="email"
+          id="email-id"
           className="p-3 mt-8 w-full bg-gray-700 rounded-md"
           placeholder="Email or phone number"
         />
 
         <input
           type="password"
+          id="pwd"
           ref={passworddd}
           className="p-3 my-6 w-full bg-gray-700 rounded-md "
           placeholder="Password"

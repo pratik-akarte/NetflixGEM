@@ -21,7 +21,7 @@ const VideoTitle = ({ title, overview }) => {
     <Box
       pt={["4em", "4em" , "20em"]}
       pb={["4em", "4em" , "20em"]}
-      className="  w-screen aspect-video pl-[10%] md:pl-[5%]  absolute bg-gradient-to-r from-black text-white -mt-[3em] md:mt-0"
+      className="  w-screen aspect-video pl-[10%] md:pl-[5%]  absolute  bg-gradient-to-r from-black text-white -mt-[3em] md:mt-0"
     >
       <Box width={["35%", "25%"]}>
         <Heading fontSize={["md", "2xl", "4xl"]}>{title}</Heading>
