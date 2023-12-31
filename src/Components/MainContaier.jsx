@@ -29,8 +29,7 @@ const MainContaier = () => {
 	  <h1>YouTube Fullscreen Background Demo</h1>
   </div>
   </div> */}
-
-    </div> 
+    </div>
   );
 };
 

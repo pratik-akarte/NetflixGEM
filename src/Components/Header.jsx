@@ -64,7 +64,7 @@ function Header() {
           <img
             src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
             alt="logo"
-            className={`w-[9em] md:w-44 ${user ? "ml-[1.5em]" : ""} 
+            className={`w-[6em] md:w-44 ${user ? "ml-[1.5em]" : ""} 
               `}
           />
         </div>
@@ -72,7 +72,7 @@ function Header() {
         {user && (
           <div className="mr-[1.5em] flex flex-row   ">
             <Text
-              className="p-1 px-3 mt-5 mr-1 text-slate-100  "
+              className="p-1 px-3 mt-1 md:mt-5 mr-1 text-slate-100  "
               fontSize={["sm", "md"]}
             >
               {" "}
@@ -81,7 +81,7 @@ function Header() {
             </Text>
 
             <Button
-              className=" rounded-md font-bold mt-5"
+              className=" rounded-md font-bold mt-2 md:mt-5"
               onClick={handleSignOut}
               color={"black"}
               bg="#E50914"
