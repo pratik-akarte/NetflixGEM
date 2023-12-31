@@ -44,7 +44,7 @@ body {
   position: relative;
   border: none;
   background: transparent;
-  padding: 0;
+  padding: 0px ;
   cursor: pointer;
   outline-offset: 4px;
   transition: filter 250ms;
@@ -86,7 +86,7 @@ body {
 .button-82-front {
   display: block;
   position: relative;
-
+  padding: 5px;
   border-radius: 8px;
   font-size: 1rem;
   color: black;
@@ -136,6 +136,7 @@ body {
 /* buttton 80 */
 
 .button-80-pushable {
+  
   position: relative;
   border: none;
   background: transparent;
@@ -180,12 +181,13 @@ body {
 .button-80-front {
   display: flex;
   position: relative;
-
+   padding: 5px;
   border-radius: 8px;
   font-size: 1rem;
   color: black;
   font-weight: 500;
   background: #f3f3f3;
+ 
   will-change: transform;
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);

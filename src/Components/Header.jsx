@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Button, Text } from "@chakra-ui/react";
+import { Button, Text, useBreakpointValue } from "@chakra-ui/react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userData";
 
 function Header() {
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
@@ -54,21 +55,26 @@ function Header() {
 
   return (
     <>
-      <div className={`w-full absolute py-2 px-8 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs ${user ? "mt-12" : ""}`}>
-
-
- 
-        <div>
+      <div
+        className={`w-full absolute py-6 md:py-2 px-0 md:px-2 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs ${
+          user && !isMobile ? "mt-12" : ""
+        }`}
+      >
+        <div className={`${isMobile ? "mx-auto" : "mx-0"}`}>
           <img
             src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
             alt="logo"
-            className={`w-44 ${user ? "ml-[1.5em]" : ""}`}
+            className={`w-[9em] md:w-44 ${user ? "ml-[1.5em]" : ""} 
+              `}
           />
         </div>
 
         {user && (
-          <div className="mr-[1.5em] flex   ">
-            <Text className="p-1 px-3 mt-5 mr-1 text-slate-100  ">
+          <div className="mr-[1.5em] flex flex-row   ">
+            <Text
+              className="p-1 px-3 mt-5 mr-1 text-slate-100  "
+              fontSize={["sm", "md"]}
+            >
               {" "}
               <ChevronDownIcon w={6} h={6} />
               {user?.displayName}
@@ -79,17 +85,15 @@ function Header() {
               onClick={handleSignOut}
               color={"black"}
               bg="#E50914"
-              w={"5.5em"}
-              h={"2em"}
+              w={["5em", "5.5em"]}
+              h={["1.8em", "2em"]}
               _hover={{ bg: "#E50914" }}
               paddingTop={"-2"}
+              fontSize={["sm", "md"]}
             >
               Sign Out
             </Button>
-
-
           </div>
-          
         )}
       </div>
     </>

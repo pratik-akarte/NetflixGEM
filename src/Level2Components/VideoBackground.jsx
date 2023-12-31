@@ -9,10 +9,12 @@ const VideoBackground = ({ movieId }) => {
   useMainTrailer(movieId);
 
   return (
-    <div className="w-screen">
-      <div className="absolute inset-12 bg-gradient-to-b from-black mb-0  h-[15%] w-full blur-sm mt-[1em]"></div>
+    <div className="w-full sm:w-screen">
+      <div className="absolute inset-0 sm:inset-12 bg-gradient-to-b from-black mb-0 h-[5%] sm:h-[15%] w-full sm:w-[93em] blur-sm -pt-[43em] "></div>
+     
+
       <iframe
-        className="w-screen aspect-video -mt-12 "
+        className="w-full sm:w-screen aspect-video -mt-7 md:-mt-12 "
         src={`https://www.youtube.com/embed/${videoTrailer?.key}?&mute=1&autoplay=1&fs=0&loop=1&controls=0&showinfo=0`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

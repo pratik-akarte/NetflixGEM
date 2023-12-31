@@ -16,10 +16,12 @@ function NotFound() {
         <img
           src="https://i.gifer.com/SMLZ.gif"
           alt=""
-          className="mt-12 w-[20%] mb-16"
+          className="mt-12 w-[60%] md:w-[25%] mb-16"
         />
         <Box className="">
-          <Heading>ERROR : THE PAGE DOESN'T EXIST</Heading>
+          <Heading fontSize={["md", "xl"]}>
+            ERROR : THE PAGE DOESN'T EXIST
+          </Heading>
 
           <Heading>{error.message}</Heading>
 

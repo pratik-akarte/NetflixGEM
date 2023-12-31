@@ -1,5 +1,5 @@
 import Header from "./Header";
-import { Text } from "@chakra-ui/react";
+import { Text, useBreakpointValue } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { Validate } from "../utils/validate";
 
@@ -14,7 +14,7 @@ import {
 import { auth } from "../utils/firebase";
 
 const Login = () => {
-
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const dispatch = useDispatch();
   const [isSignIn, setSignIn] = useState("true");
   const [errorMsg, setErrorMsg] = useState(null);
@@ -92,9 +92,6 @@ const Login = () => {
           // eslint-disable-next-line no-unused-vars
           const user = userCredential.user;
 
-       
-        
-
           // ...
         })
         .catch((error) => {
@@ -112,13 +109,15 @@ const Login = () => {
       <img
         src="https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/67033404-2df8-42e0-a5a0-4c8288b4da2c/IN-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg"
         alt="bg"
-        className="absolute"
+        className={`absolute object-cover  ${isMobile ? "h-screen" : ""}`}
       />
 
       <form
         onSubmit={(e) => e.preventDefault()}
         action=""
-        className="absolute mx-auto right-0 left-0 w-[28%] mt-40 bg-black p-12 flex flex-col text-white bg-opacity-80 rounded-lg"
+        className={`absolute mx-auto right-0 left-0 ${
+          isMobile ? "w-[60%]" : "w-[28%]"
+        } mt-40 bg-black p-10 md:p-12 flex flex-col text-white bg-opacity-80 rounded-lg`}
       >
         <h1 className="color-white text-3xl  font-bold">
           {isSignIn ? "Sign In" : "Sign Up"}

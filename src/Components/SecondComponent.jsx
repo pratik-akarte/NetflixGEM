@@ -6,15 +6,17 @@ const SecondComponent = () => {
   const movies = useSelector((store) => store.movies);
   return (
     <div>
-      <Box className="-mt-[18em] relative">
-      <Movielist title={"Now Playing"} movieData={movies?.nowPlayingMovies} />
+      <Box
+        className=" 
+       relative"
+        marginTop={["28%", "-21%"]}
+      >
+        <Movielist title={"Now Playing"} movieData={movies?.nowPlayingMovies} />
       </Box>
-     
-      
+
       <Movielist title={"Upcoming Movies"} movieData={movies?.upcomingMovies} />
       <Movielist title={"Trending Now"} movieData={movies?.trendingMovies} />
       <Movielist title={"Popular"} movieData={movies?.popularMovies} />
-     
     </div>
   );
 };
