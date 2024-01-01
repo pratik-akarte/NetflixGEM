@@ -4,12 +4,12 @@ import MovieRecommendations from "./MovieRecommendations";
 
 function GeminiSearch() {
   return (
-    <div className="">
+    <>
       <GPTsearch />
       <Box className="  backdrop-blur-md rounded-md   ">
         <MovieRecommendations />
       </Box>
-    </div>
+    </>
   );
 }
 

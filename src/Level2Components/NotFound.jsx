@@ -16,7 +16,7 @@ function NotFound() {
         <img
           src="https://i.gifer.com/SMLZ.gif"
           alt=""
-          className=" -mt-[15em] md:mt-12 w-[55%] md:w-[25%] mb-16 rounded-lg"
+          className=" -mt-[15em] md:mt-1 w-[55%] md:w-[20%] mb-16 rounded-lg"
         />
         <Box className="">
           <Heading fontSize={["md", "xl"]}>

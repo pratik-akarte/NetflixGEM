@@ -5,7 +5,7 @@ import SecondComponent from "./SecondComponent";
 import useUpcomingMovie from "../hooks/useUpcomingMovie";
 import useTrending from "../hooks/useTrending";
 import usePopular from "../hooks/usePopular";
-
+import { Box } from "@chakra-ui/react";
 
 function Browse() {
   useNowPlaying();
@@ -13,10 +13,9 @@ function Browse() {
   useTrending();
   usePopular();
   return (
-    <div className="bg-black">
+    <Box className="bg-black">
       <Header />
 
-     
       <MainContaier />
 
       {/*
@@ -28,7 +27,7 @@ function Browse() {
            Cards * n   
        */}
       <SecondComponent />
-    </div>
+    </Box>
   );
 }
 

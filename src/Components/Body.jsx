@@ -1,15 +1,11 @@
-
-import Login from "./Login"
-
+import Login from "./Login";
 
 function Body() {
   return (
-    <div>
-     <Login/>
-      
-    </div>
-
-  )
+    <>
+      <Login />
+    </>
+  );
 }
 
-export default Body
+export default Body;

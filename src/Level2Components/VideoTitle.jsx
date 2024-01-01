@@ -19,8 +19,8 @@ const VideoTitle = ({ title, overview }) => {
 
   return (
     <Box
-      pt={["4em", "4em" , "20em"]}
-      pb={["4em", "4em" , "20em"]}
+      pt={["4em", "4em", "20em"]}
+      pb={["4em", "4em", "20em"]}
       className="  w-screen aspect-video pl-[7%] md:pl-[5%]  absolute  bg-gradient-to-r from-black text-white -mt-[3em] md:mt-0"
     >
       <Box width={["45%", "25%"]}>
@@ -61,11 +61,11 @@ const VideoTitle = ({ title, overview }) => {
               {" "}
               <Text className="mx-auto flex flex-row">
                 <img
-                src="/icons8-play-96.png"
-                alt=""
-                className="w-4 h-4 mr-1 mt-1  mx-auto"
-              />
-              Play
+                  src="/icons8-play-96.png"
+                  alt=""
+                  className="w-4 h-4 mr-1 mt-1  mx-auto"
+                />
+                Play
               </Text>
             </span>
           </button>
