@@ -1,6 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { Box, Center, Flex, Input, Spinner, Text, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Input,
+  Spinner,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { useRef, useState } from "react";
 
 import { Gemini_API_Key, API_OPTIONS } from "../utils/constants";
@@ -23,7 +31,7 @@ const GPTsearch = () => {
       const prompt =
         "Act as a movies recommendation system and suggest some movies for the query" +
         inputText?.current?.value +
-        ". Only Give me 11 movies name , comma separated and without numeration like the example given ahead. Example: Gadar,Animal,Pathan,Tiger,Jawan";
+        ". Only Give me 8 movies name , comma separated and without numeration like the example given ahead. Example: Gadar,Animal,Pathan,Tiger,Jawan";
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -96,15 +104,22 @@ const GPTsearch = () => {
 
   return (
     <Box className="grad text-white pb-[45%] bg-gradient-to-b from-black ">
-      <img src="/3658919.jpg" alt="bg"
-       className={`absolute -z-20 object-cover  ${isMobile ? "h-screen" : ""}`}/>
+      <img
+        src="/3658919.jpg"
+        alt="bg"
+        className={`absolute -z-20 object-cover  ${isMobile ? "h-screen" : ""}`}
+      />
 
       <Center mx="auto" my="auto" className="w-[70%] flex-col text-center  ">
         <a href="/browse" className="flex mr-[55%] mt-6">
-          <button className="flex justify-start rounded-[50%] md:border p-2 md:p-3 ">
+          <button className="flex justify-start   p-2 md:p-3 ">
             <ChevronLeftIcon />
           </button>
-          <Text marginTop={"6px"} marginLeft={["1px","10px"]} fontSize={["xs" , "md"]}>
+          <Text
+            marginTop={"6px"}
+            marginLeft={["1px", "0px"]}
+            fontSize={["xs", "md"]}
+          >
             {" "}
             Back to Home
           </Text>
@@ -112,20 +127,23 @@ const GPTsearch = () => {
         <Box mx="auto">
           <Flex className="justify-betweenn flex-col pb-8">
             <img
-              
               src="/Netflix-Logo.wine.svg"
               alt="netflix-desktop-app"
-              className="mr-[3em] w-[180px] md:w-[270px]"
+              className="mr-[3em] w-[160px] md:w-[270px]"
             />{" "}
             <img
               width="250"
               src="/final_keyword_header.width-1200.format-webp__1_-removebg-preview.png"
               alt="chatgpt"
-              className=" absolute  mt-[3.8em] md:mt-[5.5em] ml-[4.2em] md:ml-[6.8em] w-[170px] md:w-[250px]"
+              className=" absolute  mt-[3.3em] md:mt-[5.5em] ml-[3.9em] md:ml-[6.8em] w-[160px] md:w-[250px]"
             />
           </Flex>
         </Box>
-        <Text fontSize={["sm","lg", "xl"]} marginBottom={"0.5em"} className="font-semibold">
+        <Text
+          fontSize={["sm", "lg", "xl"]}
+          marginBottom={"0.5em"}
+          className="font-semibold"
+        >
           Dive into the Infinite Universe of Movies with Google's Gemini
           <br />
           Your Personal Cinematic Odyssey Begins Now🚀
@@ -138,7 +156,7 @@ const GPTsearch = () => {
             ref={inputText}
             padding={"1.6em"}
             variant="flushed"
-            fontSize={["xs","sm"]}
+            fontSize={["xs", "sm"]}
             focusBorderColor="red.500"
           />
 
@@ -150,14 +168,13 @@ const GPTsearch = () => {
             <span className="button-82-shadow"></span>
             <span className="button-82-edge"></span>
             <span className="button-82-front text ">
-              <Text px={["1.5em" , "1em"]}>Get Movie Recommendations</Text>
-              
+              <Text px={["1.5em", "1em"]}>Get Movie Recommendations</Text>
             </span>
           </button>
         </Box>
 
         {isLoading && (
-          <Box className="backdrop-blur-sm mt-12 ">
+          <Box className="backdrop-blur-sm w-1/2 md:w-[25%] mt-12 py-4 rounded-full">
             <Spinner size="xl" color="red.500" />
           </Box>
         )}

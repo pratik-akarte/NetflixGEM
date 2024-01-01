@@ -117,7 +117,7 @@ const Login = () => {
         action=""
         className={`absolute mx-auto right-0 left-0 ${
           isMobile ? "w-[60%]" : "w-[28%]"
-        } mt-40 bg-black p-10 md:p-12 flex flex-col text-white bg-opacity-80 rounded-lg`}
+        } mt-40 bg-black p-10 md:p-12 flex flex-col text-white bg-opacity-[85%] rounded-lg`}
       >
         <h1 className="color-white text-3xl  font-bold">
           {isSignIn ? "Sign In" : "Sign Up"}

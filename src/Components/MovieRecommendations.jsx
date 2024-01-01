@@ -8,13 +8,18 @@ function MovieRecommendations() {
   if (!movieNames) return null;
 
   return (
-    <Box className="mx-5 md:mx-10 mt-12 md:-mt-[40em] backdrop-blur-sm">
-      <MovieSuggestionCard
-        key={movieNames}
-        title={movieNames}
-        movieData={movieSuggestions}
-      />
-    </Box>
+    <>
+      <Box
+        className="mx-0 md:mx-10 -mt-[8em] md:-mt-[40em] pt-8 px-6 md:px-12 
+       "
+      >
+        <MovieSuggestionCard
+          key={movieNames}
+          title={movieNames}
+          movieData={movieSuggestions}
+        />
+      </Box>
+    </>
   );
 }
 

@@ -12,8 +12,8 @@ const MovieSuggestionCard = ({ movieData }) => {
     return <div>Error: Movie data is not available</div>;
   }
   return (
-    <div className=" -mt-[12em] text-white overflow-x-auto">
-      <div className="flex gap-4 cursor-pointer">
+    <>
+      <div className="cursor-pointer text-black font-bold gap-5 w-full h-full flex overflow-x-auto">
         {movieData?.map((movie) => (
           <MovieCard
             key={movie?.id}
@@ -23,7 +23,7 @@ const MovieSuggestionCard = ({ movieData }) => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

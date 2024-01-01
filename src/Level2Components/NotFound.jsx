@@ -12,11 +12,11 @@ function NotFound() {
 
   return (
     <>
-      <Center className="gradBack w-full h-full flex-col">
+      <Center className="gradBack w-screen h-screen flex-col bg-[#22092C]  text-white ">
         <img
           src="https://i.gifer.com/SMLZ.gif"
           alt=""
-          className="mt-12 w-[60%] md:w-[25%] mb-16"
+          className=" -mt-[15em] md:mt-12 w-[55%] md:w-[25%] mb-16 rounded-lg"
         />
         <Box className="">
           <Heading fontSize={["md", "xl"]}>
