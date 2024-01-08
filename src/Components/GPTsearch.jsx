@@ -112,13 +112,14 @@ const GPTsearch = () => {
 
       <Center mx="auto" my="auto" className="w-[70%] flex-col text-center  ">
         <a href="/browse" className="flex mr-[55%] mt-6">
-          <button className="flex justify-start   p-2 md:p-3 ">
+          <button className="flex justify-start p-2 md:p-3 ">
             <ChevronLeftIcon />
           </button>
           <Text
             marginTop={"6px"}
             marginLeft={["1px", "0px"]}
             fontSize={["xs", "md"]}
+            fontWeight={"semibold"}
           >
             {" "}
             Back to Home
