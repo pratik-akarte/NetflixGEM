@@ -137,6 +137,7 @@ const GPTsearch = () => {
               src="/final_keyword_header.width-1200.format-webp__1_-removebg-preview.png"
               alt="chatgpt"
               className=" absolute  mt-[3.3em] md:mt-[5.5em] ml-[3.9em] md:ml-[6.8em] w-[160px] md:w-[250px]"
+              
             />
           </Flex>
         </Box>
