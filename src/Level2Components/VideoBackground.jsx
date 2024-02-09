@@ -10,7 +10,7 @@ const VideoBackground = ({ movieId }) => {
 
   return (
     <div className="w-full sm:w-screen z-10">
-      <div className=" absolute inset-2 md:inset-1 bg-gradient-to-b from-black mb-0 h-[2%] md:h-[8%] sm:w-[93em] md:w-full blur-sm   "></div>
+      <div className=" absolute inset-2 md:inset-1 bg-gradient-to-b from-black mb-0 h-[2%] md:h-[8%] sm:w-[93em] md:w-full blur-sm"></div>
 
       <iframe
         className="w-full sm:w-screen aspect-video -mt-7 md:-mt-12 "
