@@ -56,7 +56,7 @@ function Header() {
   return (
     <>
       <div
-        className={`w-full absolute py-6 md:py-2 px-0 md:px-2 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs ${
+        className={`w-full absolute py-12 md:py-2 px-0 md:px-2 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs ${
           user && !isMobile ? "mt-12" : ""
         }`}
       >
@@ -95,6 +95,7 @@ function Header() {
             </Button>
           </div>
         )}
+        
       </div>
     </>
   );

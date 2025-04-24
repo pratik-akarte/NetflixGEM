@@ -7,7 +7,7 @@ PASSWORD: Gemini@123
 
 -HOME PAGE
   -login/signup form
-  -redirect to brose page
+  -redirect to browse page
    .
 -Browse (after authentication)
     -Header

@@ -13,11 +13,11 @@ const MovieSuggestionCard = ({ movieData }) => {
   }
   return (
     <>
-      <div className="cursor-pointer text-black font-bold gap-5 w-full h-full flex overflow-x-auto">
+      <div className="cursor-pointer text-black font-bold gap-5 w-full h-full flex overflow-x-auto no-scrollbar">
         {movieData?.map((movie) => (
           <MovieCard
             key={movie?.id}
-            imgPath={movie?.poster_path}
+            imgPath={movie?.imgPath}
             title={movie?.title}
             id={movie?.id}
           />

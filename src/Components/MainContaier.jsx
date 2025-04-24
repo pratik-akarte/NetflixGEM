@@ -1,3 +1,4 @@
+
 import VideoTitle from "../Level2Components/VideoTitle";
 import VideoBackground from "../Level2Components/VideoBackground";
 import { useSelector } from "react-redux";
@@ -11,12 +12,12 @@ const MainContaier = () => {
 
   console.log(mainMovie);
 
-  const { title, overview, id } = mainMovie;
+  const { title, data , id } = mainMovie;
 
   return (
     <div className="w-screen aspect-video pt-[25%] md:pt-0 ">
-      <VideoTitle title={title} overview={overview} />
-      <VideoBackground movieId={id} />
+      <VideoTitle title={title} overview={data} />
+      <VideoBackground movieTitle={title}  key={id}/>
 
       {/* <div className="video-background">
     <div className="video-foreground">

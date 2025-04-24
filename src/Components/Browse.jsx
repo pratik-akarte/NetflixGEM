@@ -26,6 +26,7 @@ function Browse() {
          - MoviesList * n
            Cards * n   
        */}
+
       <SecondComponent />
     </Box>
   );

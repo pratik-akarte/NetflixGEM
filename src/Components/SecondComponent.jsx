@@ -9,7 +9,7 @@ const SecondComponent = () => {
       <Box
         className=" 
        relative"
-        marginTop={["55%", "-21%"]}
+        marginTop={["0%", "0%"]}
       >
         <Movielist title={"Now Playing"} movieData={movies?.nowPlayingMovies} />
       </Box>

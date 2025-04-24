@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 
-import { Gemini_API_Key, API_OPTIONS } from "../utils/constants";
+import { Gemini_API_Key, OMDB_KEY } from "../utils/constants";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useDispatch } from "react-redux";
 import { addMovieSuggestions } from "../utils/GPTslice";
@@ -27,7 +27,7 @@ const GPTsearch = () => {
   //Gemini API call
   const gemini = async () => {
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
       const prompt =
         "Act as a movies recommendation system and suggest some movies for the query" +
         inputText?.current?.value +
@@ -48,9 +48,11 @@ const GPTsearch = () => {
 
   const getMovies = async (movie) => {
     try {
+
+      const apiKey = OMDB_KEY
+
       const data = await fetch(
-        "https://api.themoviedb.org/3/search/movie?query=" + movie,
-        API_OPTIONS
+        `https://www.omdbapi.com/?s=${encodeURIComponent(movie)}&apikey=${apiKey}`
       );
 
       const json = await data?.json();
@@ -83,6 +85,7 @@ const GPTsearch = () => {
       const PromiseArray = movies.map((movie) => getMovies(movie));
 
       const tmdbMovies = await Promise.all(PromiseArray);
+      
 
       const firstMovies = tmdbMovies.map((result) => result);
 
