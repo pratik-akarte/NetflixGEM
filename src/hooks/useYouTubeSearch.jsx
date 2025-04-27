@@ -26,7 +26,7 @@ const useYouTubeSearch = (movieTitle) => {
       );
 
       const data = await res.json();
-      console.log("YouTube API Response:", data);
+      // console.log("YouTube API Response:", data);
 
       const videoId = data?.items?.[0]?.id?.videoId;
 

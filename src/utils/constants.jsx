@@ -8,6 +8,7 @@ export const API_OPTIONS = {
   },
 };
 
+export const Firebase_API_Key = "AIzaSyCTBRKTyIJFBGlWxz8oPNMIYXYpnOJrCD4";
 export const Y_API_KEY = "AIzaSyBu1oyfpnvDNrlWuboypb39wxuweFdW_-0";
 
 export const Trailer_API_KEY =
@@ -43,7 +44,5 @@ export const API_Options = {
 export const OMDB_KEY = "73cbda16";
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w780";
-
-// export const Gemini_API_Key = "AIzaSyD3JAwX5PWC0EDsLcYn6JBOtyMy3O_3iw8";
 
 export const Gemini_API_Key = "AIzaSyAVet7JTxV4aAdSA4Xr_RwNo40TnRAOEZw";

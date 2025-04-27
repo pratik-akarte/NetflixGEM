@@ -49,6 +49,7 @@ const GPTsearch = () => {
   const getMovies = async (movie) => {
     try {
 
+      console.log(movie)
       const apiKey = OMDB_KEY
 
       const data = await fetch(
@@ -57,8 +58,10 @@ const GPTsearch = () => {
 
       const json = await data?.json();
 
+      // console.log(json)
+
       // Return only the first movie from the search results
-      return json?.results?.[0];
+      return json?.Search?.[0];
     } catch (error) {
       console.error("Error in getMovies function:", error);
       // Handle the error as needed, e.g., display an error message to the user
@@ -89,8 +92,8 @@ const GPTsearch = () => {
 
       const firstMovies = tmdbMovies.map((result) => result);
 
-      console.log(moviesArray);
-      console.log(firstMovies, "fffffff");
+      // console.log(moviesArray);
+      // console.log(firstMovies, "fffffff");
 
       dispatch(
         addMovieSuggestions({

@@ -12,7 +12,7 @@ function NotFound() {
 
   return (
     <>
-      <Center className="gradBack w-screen h-screen flex-col bg-[#22092C]  text-white ">
+      <Center className="gradBack w-screen h-screen flex-col bg-[#1e1920]  text-white ">
         <img
           src="https://i.gifer.com/SMLZ.gif"
           alt=""

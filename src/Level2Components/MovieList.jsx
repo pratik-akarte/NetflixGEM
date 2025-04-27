@@ -8,7 +8,7 @@ import MovieCard from "./MovieCard";
 const Movielist = ({ title, movieData })  => {
   
   return (
-    <Box className="pl-9 -mt-[12em] text-white  ">
+    <Box className="pl-9 -mt-[15em] text-white  ">
       <Heading paddingY={["1rem", "2rem"]} fontSize={["md", "lg", "xl"]}>
         {title}
       </Heading>

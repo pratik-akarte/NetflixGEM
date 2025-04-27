@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userData";
+import { PiHandWavingDuotone } from "react-icons/pi";
 
 function Header() {
   const isMobile = useBreakpointValue({ base: true, md: false });
@@ -71,15 +72,16 @@ function Header() {
 
         {user && (
           <div className="mr-[1.5em] flex flex-row   ">
-            <Text
-              className="p-1 px-3 mt-1 md:mt-5 mr-1 text-slate-100  "
-              fontSize={["sm", "md"]}
-            >
-              {" "}
-              <ChevronDownIcon w={6} h={6} />
-              {user?.displayName}
-            </Text>
-
+            
+            
+              {user?.email === null ? (
+                <Text  className="p-1 px-3 mt-1 md:mt-5 mr-1 text-slate-100  "
+                fontSize={["sm", "md"]}>  <ChevronDownIcon w={6} h={6} /> <PiHandWavingDuotone className="inline-block" /> Guest</Text>
+              ) : (
+                <Text  className="p-1 px-3 mt-1 md:mt-5 mr-1 text-slate-100  "
+                fontSize={["sm", "md"]}>  <ChevronDownIcon w={6} h={6} /> <PiHandWavingDuotone className="inline-block" /> {user?.displayName}</Text>
+              )}
+            
             <Button
               className=" rounded-md font-bold mt-2 md:mt-5"
               onClick={handleSignOut}
@@ -95,7 +97,6 @@ function Header() {
             </Button>
           </div>
         )}
-        
       </div>
     </>
   );

@@ -29,7 +29,7 @@ const usePopular = () => {
     try {
       // Fetch trending movies from Trakt
       const traktResponse = await fetch(
-        "https://api.trakt.tv/movies/trending", 
+        "https://api.trakt.tv/movies/watched", 
         API_OPTIONS
       );
       
@@ -39,7 +39,7 @@ const usePopular = () => {
 
       const traktData = await traktResponse.json();
 
-      console.log(traktData)
+      // console.log(traktData)
 
       const moviesData = await Promise.all(
         traktData.slice(0, 10).map(async (movieEntry) => {
@@ -71,7 +71,7 @@ const usePopular = () => {
         })
       );
 
-      console.log(moviesData);
+      // console.log(moviesData);
       // Filter out any null entries and dispatch
       dispatch(addPopularMovies(moviesData.filter(Boolean)));
       

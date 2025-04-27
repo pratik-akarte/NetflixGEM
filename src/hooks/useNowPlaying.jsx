@@ -69,7 +69,7 @@ const useNowPlaying = () => {
         })
       );
 
-      console.log(moviesData);
+      // console.log(moviesData);
       // Filter out any null entries and dispatch
       dispatch(addNowPlayingMovies(moviesData.filter(Boolean)));
       

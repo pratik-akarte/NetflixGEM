@@ -6,6 +6,7 @@ import useUpcomingMovie from "../hooks/useUpcomingMovie";
 import useTrending from "../hooks/useTrending";
 import usePopular from "../hooks/usePopular";
 import { Box } from "@chakra-ui/react";
+import Footer from "./Footer";
 
 function Browse() {
   useNowPlaying();
@@ -28,6 +29,7 @@ function Browse() {
        */}
 
       <SecondComponent />
+      <Footer/>
     </Box>
   );
 }
