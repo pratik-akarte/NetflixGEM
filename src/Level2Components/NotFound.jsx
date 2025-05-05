@@ -15,6 +15,7 @@ function NotFound() {
       <Center className="gradBack w-screen h-screen flex-col bg-[#1e1920]  text-white ">
         <img
           src="https://i.gifer.com/SMLZ.gif"
+          loading="lazy" 
           alt=""
           className=" -mt-[15em] md:mt-1 w-[55%] md:w-[20%] mb-16 rounded-lg"
         />
@@ -29,7 +30,7 @@ function NotFound() {
             <Button
               colorScheme="red"
               leftIcon={<ArrowBackIcon />}
-              onClick={() => navigate("/")}
+              onClick={() => location.reload()}
             >
               Back to Home
             </Button>

@@ -1,38 +1,56 @@
-/* eslint-disable react/prop-types */
-// ----MOVIELIST BY GENRE
+import { Box, Heading, Flex } from "@chakra-ui/react";
+import { lazy, Suspense } from "react";
+import MovieCardSkeleton from "./MovieCardSkeleton";
 
-import { Box, Heading } from "@chakra-ui/react";
-import MovieCard from "./MovieCard";
+const MovieCard = lazy(() => import("./MovieCard"));
 
-// eslint-disable-next-line react/prop-types
-const Movielist = ({ title, movieData })  => {
-  
+const MovieList = ({ title, movieData }) => {
   return (
-    <Box className="pl-9 -mt-[15em] text-white  ">
-      <Heading paddingY={["1rem", "2rem"]} fontSize={["md", "lg", "xl"]}>
-        {title}
-      </Heading>
-      <div
-        className="flex"
-        style={{ overflowX: "auto", scrollbarWidth: "thin" }}
+    <Suspense fallback={<MovieCardSkeleton count={10} />}>
+      <Box
+        className="text-white"
+        pl={[4, 6, 9]}
+        mt={{ base: -40, md: -28, lg: 5 }}
       >
-        <div className="flex flex-row gap-2 md:gap-4 cursor-pointer  pb-[80%]  md:pb-[4%]">
-          {movieData?.map((movie) => (
-            
-            <MovieCard
-              key={movie?.id}
-              imgPath={movie?.imgPath}
-              title={movie?.title}
-              id={movie?.id}
-            />
-          ))}
+        <Heading
+          py={[4, 8]}
+          fontSize={["md", "lg", "xl"]}
+          fontWeight="bold"
+        >
+          {title}
+        </Heading>
 
-        
-        </div>
-      </div>
-      
-    </Box>
+        <Box
+          overflowX="auto"
+          pb={"5em"}
+          css={{
+            "&::-webkit-scrollbar": {
+              height: "6px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderRadius: "3px",
+            },
+          }}
+        >
+          <Flex
+            gap={[2, 3, 4]}
+            pb={[4, 5]}
+            minW="max-content"
+          >
+            {movieData?.map((movie) => (
+              <MovieCard
+                key={movie?.id}
+                imgPath={movie?.imgPath || movie?.backdrop_path}
+                title={movie?.title}
+                id={movie?.id}
+              />
+            ))}
+          </Flex>
+        </Box>
+      </Box>
+    </Suspense>
   );
 };
 
-export default Movielist;
+export default MovieList;

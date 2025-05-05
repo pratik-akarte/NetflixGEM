@@ -1,5 +1,5 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Button, Text, useBreakpointValue } from "@chakra-ui/react";
+
+import { Button, Text, useBreakpointValue, Image } from "@chakra-ui/react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -58,15 +58,19 @@ function Header() {
     <>
       <div
         className={`w-full absolute py-12 md:py-2 px-0 md:px-2 bg-gradient-to-b from-black z-10  flex  justify-between backdrop-blur-xs ${
-          user && !isMobile ? "mt-12" : ""
+          user && !isMobile ? "mt-2" : "mt-0"
         }`}
       >
         <div className={`${!user ? "mx-auto" : "mx-0"}`}>
-          <img
-            src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          <Image
+            src="/logo.png"
             alt="logo"
-            className={`w-[6em] md:w-40  
-              `}
+            loading="lazy"
+            width={{base:'3em', md:'4em', lg:'4em'}}
+            height={'auto'}
+            ml={user ? { base: '3em', md: '4em', lg: '4em' } : 0}
+            mt={!user ? {base: '1em', md: '2em', lg: '2em' } : 0}
+           
           />
         </div>
 
@@ -76,10 +80,10 @@ function Header() {
             
               {user?.email === null ? (
                 <Text  className="p-1 px-3 mt-1 md:mt-5 mr-1 text-slate-100  "
-                fontSize={["sm", "md"]}>  <ChevronDownIcon w={6} h={6} /> <PiHandWavingDuotone className="inline-block" /> Guest</Text>
+                fontSize={["sm", "md"]}>  <PiHandWavingDuotone className="inline-block" /> Guest</Text>
               ) : (
                 <Text  className="p-1 px-3 mt-1 md:mt-5 mr-1 text-slate-100  "
-                fontSize={["sm", "md"]}>  <ChevronDownIcon w={6} h={6} /> <PiHandWavingDuotone className="inline-block" /> {user?.displayName}</Text>
+                fontSize={["sm", "md"]}><PiHandWavingDuotone className="inline-block" /> {user?.displayName}</Text>
               )}
             
             <Button

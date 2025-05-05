@@ -14,6 +14,7 @@ function MovieRecommendations() {
        "
       >
         <MovieSuggestionCard
+       
           key={movieNames}
           title={movieNames}
           movieData={movieSuggestions}

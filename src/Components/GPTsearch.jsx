@@ -113,7 +113,7 @@ const GPTsearch = () => {
       <img
         src="/3658919.jpg"
         alt="bg"
-        className={`absolute -z-20 object-cover  ${isMobile ? "h-screen" : ""}`}
+        className={`absolute -z-20 object-cover  ${isMobile ? "h-screen" : "w-screen"}`}
       />
 
       <Center mx="auto" my="auto" className="w-[70%] flex-col text-center  ">
